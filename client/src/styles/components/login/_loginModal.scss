@@ -1,0 +1,132 @@
+.login-modal {
+    position: absolute;
+    top: calc(50vh - 215px);
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    height: 430px;
+    width: 700px;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    .welcome {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 43%;
+        background: linear-gradient(229.5deg, #fa0, #ff7100);
+
+        .welcome-content {
+            padding: 30px;
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 400;
+                color: white;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+                margin: 0;
+                padding: 0;
+            }
+            h4 {
+                font-size: 1.2rem;
+                font-weight: 400;
+                color: white;
+                margin: 0;
+            }
+            #logo {
+                width: 70px;
+                height: 35px;
+            }
+            #lamp {
+                margin-top: 4rem;
+                width: 213px;
+                height: 108px;
+            }
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .form-header {
+            width: 300px;
+            margin: 1rem 0 3rem 0;
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: #333;
+                margin: 0 auto;
+            }
+            p {
+                font-size: 14px;
+                color: #999999;
+                margin: 0 auto;
+            }
+        }
+
+        form {
+            height: 100%;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            label {
+                display: block;
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+            }
+            input {
+                width: 100%;
+                height: 2.5rem;
+                padding: 0 1rem;
+                outline: none;
+                border-color: rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+                border-width: 1px;
+                &::placeholder {
+                    font-size: 1rem;
+                    color: rgba(0, 0, 0, 0.25);
+                }
+            }
+            #password-label {
+                margin-top: 2rem;
+            }
+            button {
+                width: 100%;
+                height: 2.5rem;
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+            .error-message {
+                color: red;
+                margin: 0;
+            }
+
+            a {
+                color: #ff7100;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        p {
+            span {
+                color: #ff7100;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
