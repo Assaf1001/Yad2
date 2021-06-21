@@ -1,8 +1,7 @@
 client/node_modules
-client/config
+client/build
 client/.env.development
 client/.env.production
-client/build
 
 server/node_modules
 server/config
