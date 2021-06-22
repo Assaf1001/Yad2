@@ -18,7 +18,7 @@
         justify-content: center;
         align-items: center;
         width: 43%;
-        background: linear-gradient(229.5deg, #fa0, #ff7100);
+        background: linear-gradient(229.5deg, #fa0, $orange);
 
         .welcome-content {
             padding: 30px;
@@ -79,41 +79,64 @@
             flex-direction: column;
             justify-content: space-between;
 
-            label {
-                display: block;
-                font-size: 1rem;
-                margin-bottom: 0.2rem;
-            }
-            input {
-                width: 100%;
-                height: 2.5rem;
-                padding: 0 1rem;
-                outline: none;
-                border-color: rgba(0, 0, 0, 0.2);
-                border-radius: 5px;
-                border-width: 1px;
-                &::placeholder {
+            .inputs {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    display: block;
                     font-size: 1rem;
-                    color: rgba(0, 0, 0, 0.25);
+                    margin-bottom: 0.2rem;
+                }
+                input {
+                    width: 100%;
+                    height: 2.5rem;
+                    padding: 0 1rem;
+                    outline: none;
+                    border-color: rgba(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                    border-width: 1px;
+                    &::placeholder {
+                        font-size: 1rem;
+                        color: rgba(0, 0, 0, 0.25);
+                    }
+                }
+                #password-repeat {
+                    margin-top: 0.5rem;
+                }
+                #password-label {
+                    margin-top: 2rem;
+                }
+                .error-border {
+                    border-color: $red;
+                }
+                .valid-border {
+                    border-color: $green;
                 }
             }
-            #password-label {
-                margin-top: 2rem;
-            }
+
             button {
                 width: 100%;
                 height: 2.5rem;
+                border-radius: 4px;
+                color: white;
+                background-color: $orange;
+                border: none;
+                &:hover {
+                    cursor: pointer;
+                }
                 &:disabled {
                     cursor: not-allowed;
                 }
             }
             .error-message {
-                color: red;
+                color: $red;
                 margin: 0;
             }
 
             a {
-                color: #ff7100;
+                color: $orange;
+                align-self: flex-end;
                 &:hover {
                     cursor: pointer;
                 }
@@ -122,7 +145,7 @@
 
         p {
             span {
-                color: #ff7100;
+                color: $orange;
                 &:hover {
                     cursor: pointer;
                 }
