@@ -29,12 +29,6 @@ const userSchema = new mongoose.Schema(
                 }
             },
         },
-        details: {
-            firstName: { type: String, required: true, trim: true },
-            lastName: { type: String, required: true, trim: true },
-            phoneNumber: { type: String, required: true },
-            birthDate: { type: String, required: true },
-        },
         tokens: [
             {
                 token: { type: String, required: true },

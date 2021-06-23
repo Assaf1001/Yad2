@@ -5,7 +5,7 @@ import { LoginContext } from "../../context/LoginContext";
 import { saveUserOnCookie } from "../../cookies/cookies";
 import { login } from "../../server/users";
 
-const LoginForm = ({ setIsLoginMode }) => {
+const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
     const { dispatchUserData } = useContext(LoginContext);
 
     const [email, setEmail] = useState("");
@@ -15,7 +15,6 @@ const LoginForm = ({ setIsLoginMode }) => {
     const [password, setPassword] = useState("");
     const [isPasswordValid, setIsPasswordValid] = useState(true);
     const [isPasswordBorderActive, setIsPasswordBorderActive] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
 
     const isFormValid = () => isEmailValid && isPasswordValid;
 
@@ -59,7 +58,8 @@ const LoginForm = ({ setIsLoginMode }) => {
                     dispatchUserData(loginAction(data));
                 })
                 .catch((err) => {
-                    setErrorMessage("מייל אינו תקין");
+                    console.log(err.message);
+                    setErrorMessage(err.message);
                 });
         }
     };

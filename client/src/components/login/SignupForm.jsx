@@ -3,11 +3,11 @@ import validator from "validator";
 import { loginAction } from "../../actions/loginAction";
 import { LoginContext } from "../../context/LoginContext";
 import { saveUserOnCookie } from "../../cookies/cookies";
-import { login } from "../../server/users";
+import { signup } from "../../server/users";
 
 import icons from "../../icons/icons";
 
-const SignupForm = ({ setIsLoginMode }) => {
+const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
     const { dispatchUserData } = useContext(LoginContext);
 
     const [email, setEmail] = useState("");
@@ -20,15 +20,14 @@ const SignupForm = ({ setIsLoginMode }) => {
     const [isPasswordBorderActive, setIsPasswordBorderActive] = useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
 
-    const [passwordRepeat, setPasswordRepeat] = useState("");
     const [isPasswordRepeatValid, setIsPasswordRepeatValid] = useState(false);
     const [isPasswordRepeatBorderActive, setIsPasswordRepeatBorderActive] =
         useState(false);
     const [passwordRepeatErrorMessage, setPasswordRepeatErrorMessage] =
         useState("");
-    const [errorMessage, setErrorMessage] = useState("");
 
-    const isFormValid = () => isEmailValid && isPasswordValid;
+    const isFormValid = () =>
+        isEmailValid && isPasswordValid && isPasswordRepeatValid;
 
     const onInputEmail = (event) => {
         setIsEmailBorderActive(true);
@@ -57,12 +56,12 @@ const SignupForm = ({ setIsLoginMode }) => {
             setPassword(value);
             setIsPasswordValid(true);
             setPasswordErrorMessage("");
-        } else if (value.length === 0) {
-            setPassword("");
-            setIsPasswordValid(false);
-            setPasswordErrorMessage("שדה חובה");
         } else {
             switch (true) {
+                case value.length === 0:
+                    setPassword("");
+                    setIsPasswordValid(false);
+                    setPasswordErrorMessage("שדה חובה");
                 case value.length < 6:
                     setPasswordErrorMessage("מינימום 6 תווים");
                     setIsPasswordValid(false);
@@ -90,16 +89,13 @@ const SignupForm = ({ setIsLoginMode }) => {
     const onInputPasswordRepeat = (event) => {
         setIsPasswordRepeatBorderActive(true);
         const value = event.target.value;
-        if (value === password) {
-            setPasswordRepeat(value);
-            setIsPasswordRepeatValid(true);
-            setPasswordRepeatErrorMessage("");
-        } else if (value.length === 0) {
-            setPasswordRepeat("");
+        if (value.length === 0) {
             setIsPasswordRepeatValid(false);
             setPasswordRepeatErrorMessage("שדה חובה");
+        } else if (value === password) {
+            setIsPasswordRepeatValid(true);
+            setPasswordRepeatErrorMessage("");
         } else {
-            setPasswordRepeat("");
             setIsPasswordRepeatValid(false);
             setPasswordRepeatErrorMessage("סיסמה לא תואמת");
         }
@@ -108,16 +104,16 @@ const SignupForm = ({ setIsLoginMode }) => {
     const onSubmitForm = (event) => {
         event.preventDefault();
 
-        // if (isFormValid()) {
-        //     login({ email, password })
-        //         .then((data) => {
-        //             saveUserOnCookie(data);
-        //             dispatchUserData(loginAction(data));
-        //         })
-        //         .catch((err) => {
-        //             setErrorMessage("מייל אינו תקין");
-        //         });
-        // }
+        if (isFormValid()) {
+            signup({ email, password })
+                .then((data) => {
+                    saveUserOnCookie(data);
+                    dispatchUserData(loginAction(data));
+                })
+                .catch((err) => {
+                    setErrorMessage(err.message);
+                });
+        }
     };
     return (
         <div className="form">

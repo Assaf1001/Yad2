@@ -14,3 +14,16 @@ export const login = async ({ email, password }) => {
         throw new Error(err.response.data.message);
     }
 };
+
+export const signup = async ({ email, password }) => {
+    try {
+        const res = await axios.post(`${serverAddress}/users/signup`, {
+            email,
+            password,
+        });
+
+        return { user: res.data.user, token: res.data.token };
+    } catch (err) {
+        throw new Error(err.response.data.message);
+    }
+};

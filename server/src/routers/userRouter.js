@@ -17,10 +17,17 @@ router.post("/users/signup", async (req, res) => {
 
         res.status(201).send({ user, token });
     } catch (err) {
-        res.status(400).send({
-            status: 400,
-            message: err.message,
-        });
+        if (err.message.includes("duplicate key")) {
+            res.status(400).send({
+                status: 400,
+                message: "אימייל בשימוש",
+            });
+        } else {
+            res.status(400).send({
+                status: 400,
+                message: err.message,
+            });
+        }
     }
 });
 
@@ -34,7 +41,10 @@ router.post("/users/login", async (req, res) => {
 
         res.send({ user, token });
     } catch (err) {
-        res.status(400).send("Unable to login!");
+        res.status(400).send({
+            status: 400,
+            message: "מייל או סיסמה אינם תקינים",
+        });
     }
 });
 
