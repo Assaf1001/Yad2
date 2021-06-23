@@ -1,4 +1,3 @@
-import { set } from "js-cookie";
 import React, { useContext, useState } from "react";
 import validator from "validator";
 import { loginAction } from "../../actions/loginAction";

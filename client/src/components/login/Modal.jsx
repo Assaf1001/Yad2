@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import lamp from "../../images/couch_lamp.svg";
 import logo from "../../images/New_logo_negative.svg";
 import LoginForm from "./LoginForm";
-import SignupFormPart1 from "./SignupFormPart1";
-import SignupFormPart2 from "./SignupFormPart2";
+import SignupForm from "./SignupForm";
 
 const Modal = () => {
     const [isLoginMode, setIsLoginMode] = useState(true);
-    const [isSignupPart1, setIsSignupPart1] = useState(true);
 
     return (
         <div className="login-modal">
@@ -25,13 +23,8 @@ const Modal = () => {
             </div>
             {isLoginMode ? (
                 <LoginForm setIsLoginMode={setIsLoginMode} />
-            ) : isSignupPart1 ? (
-                <SignupFormPart1
-                    setIsLoginMode={setIsLoginMode}
-                    setIsSignupPart1={setIsSignupPart1}
-                />
             ) : (
-                <SignupFormPart2 />
+                <SignupForm setIsLoginMode={setIsLoginMode} />
             )}
         </div>
     );
