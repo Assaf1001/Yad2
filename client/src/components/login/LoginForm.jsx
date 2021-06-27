@@ -3,6 +3,7 @@ import validator from "validator";
 import { loginAction } from "../../actions/loginAction";
 import { LoginContext } from "../../context/LoginContext";
 import { saveUserOnCookie } from "../../cookies/cookies";
+import icons from "../../icons/icons";
 import { login } from "../../server/users";
 
 const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
@@ -15,6 +16,8 @@ const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
     const [password, setPassword] = useState("");
     const [isPasswordValid, setIsPasswordValid] = useState(true);
     const [isPasswordBorderActive, setIsPasswordBorderActive] = useState(false);
+
+    const [passwordInputType, setPasswordInputType] = useState("password");
 
     const isFormValid = () => isEmailValid && isPasswordValid;
 
@@ -54,6 +57,7 @@ const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
         if (isFormValid()) {
             login({ email, password })
                 .then((data) => {
+                    console.log(data);
                     saveUserOnCookie(data);
                     dispatchUserData(loginAction(data));
                 })
@@ -61,6 +65,14 @@ const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
                     console.log(err.message);
                     setErrorMessage(err.message);
                 });
+        }
+    };
+
+    const onClickTogglePasswordType = () => {
+        if (passwordInputType === "password") {
+            setPasswordInputType("text");
+        } else {
+            setPasswordInputType("password");
         }
     };
 
@@ -92,8 +104,8 @@ const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
                     <label id="password-label" htmlFor="password">
                         סיסמה
                     </label>
-                    <input
-                        onInput={onInputPassword}
+                    <div
+                        id="input-container"
                         className={
                             !isPasswordBorderActive
                                 ? ""
@@ -101,10 +113,19 @@ const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
                                 ? "valid-border"
                                 : "error-border"
                         }
-                        type="password"
-                        id="password"
-                        placeholder="הקלד סיסמה"
-                    />
+                    >
+                        <input
+                            onInput={onInputPassword}
+                            type={passwordInputType}
+                            id="password"
+                            placeholder="הקלד סיסמה"
+                        />
+                        <span onClick={onClickTogglePasswordType}>
+                            {passwordInputType === "password"
+                                ? icons.notVisable
+                                : icons.visable}
+                        </span>
+                    </div>
                     {!isPasswordValid && (
                         <p className="error-message">שדה חובה</p>
                     )}

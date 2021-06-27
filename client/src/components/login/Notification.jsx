@@ -5,7 +5,7 @@ const Notification = ({ errorMessage, setErrorMessage }) => {
         setTimeout(() => {
             setErrorMessage("");
         }, 4000);
-    }, []);
+    }, [setErrorMessage]);
 
     const onClickCloseNotification = () => {
         setErrorMessage("");

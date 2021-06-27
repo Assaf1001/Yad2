@@ -12,6 +12,17 @@
     border-top-left-radius: 5px;
     box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.25);
 
+    .close-button {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     .welcome {
         display: flex;
         flex-direction: column;
@@ -105,6 +116,27 @@
                         color: rgba(0, 0, 0, 0.25);
                     }
                 }
+                #input-container,
+                #input-container-2 {
+                    border-radius: 5px;
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    width: 100%;
+                    input {
+                        border: none;
+                        width: 90%;
+                    }
+                    span {
+                        svg {
+                            color: rgba(0, 0, 0, 0.25);
+                        }
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+                #input-container-2 {
+                    margin-top: 1rem;
+                }
                 .password-repeat-label {
                     margin-top: 0.5rem;
                 }
@@ -112,10 +144,10 @@
                     margin-top: 2rem;
                 }
                 .error-border {
-                    border-color: $red;
+                    border-color: $red !important;
                 }
                 .valid-border {
-                    border-color: $green;
+                    border-color: $green !important;
                 }
             }
 

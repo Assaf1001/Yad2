@@ -4,8 +4,9 @@ import logo from "../../images/New_logo_negative.svg";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Notification from "./Notification";
+import icons from "../../icons/icons";
 
-const Modal = () => {
+const Modal = ({ onClickToggleModal }) => {
     const [isLoginMode, setIsLoginMode] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,6 +19,9 @@ const Modal = () => {
                 />
             )}
             <div className="login-modal">
+                <div className="close-button" onClick={onClickToggleModal}>
+                    {icons.close}
+                </div>
                 <div className="welcome">
                     <div className="welcome-content">
                         <img id="logo" src={logo} alt="logo" />

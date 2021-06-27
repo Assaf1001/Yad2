@@ -26,6 +26,10 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
     const [passwordRepeatErrorMessage, setPasswordRepeatErrorMessage] =
         useState("");
 
+    const [passwordInputType, setPasswordInputType] = useState("password");
+    const [passwordRepeatInputType, setPasswordRepeatInputType] =
+        useState("password");
+
     const isFormValid = () =>
         isEmailValid && isPasswordValid && isPasswordRepeatValid;
 
@@ -62,6 +66,7 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                     setPassword("");
                     setIsPasswordValid(false);
                     setPasswordErrorMessage("שדה חובה");
+                    break;
                 case value.length < 6:
                     setPasswordErrorMessage("מינימום 6 תווים");
                     setIsPasswordValid(false);
@@ -82,6 +87,8 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                     setPasswordErrorMessage("לפחות ספרה אחת");
                     setIsPasswordValid(false);
                     break;
+                default:
+                    return;
             }
         }
     };
@@ -107,6 +114,7 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
         if (isFormValid()) {
             signup({ email, password })
                 .then((data) => {
+                    console.log(data);
                     saveUserOnCookie(data);
                     dispatchUserData(loginAction(data));
                 })
@@ -115,6 +123,23 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                 });
         }
     };
+
+    const onClickTogglePasswordType = () => {
+        if (passwordInputType === "password") {
+            setPasswordInputType("text");
+        } else {
+            setPasswordInputType("password");
+        }
+    };
+
+    const onClickTogglePasswordRepeatType = () => {
+        if (passwordRepeatInputType === "password") {
+            setPasswordRepeatInputType("text");
+        } else {
+            setPasswordRepeatInputType("password");
+        }
+    };
+
     return (
         <div className="form">
             <div className="form-header">
@@ -145,7 +170,8 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                     <label id="password-label" htmlFor="password">
                         {isPasswordValid && icons.check} סיסמה
                     </label>
-                    <input
+                    <div
+                        id="input-container"
                         className={
                             !isPasswordBorderActive
                                 ? ""
@@ -153,30 +179,48 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                                 ? "valid-border"
                                 : "error-border"
                         }
-                        onInput={onInputPassword}
-                        type="password"
-                        id="password"
-                        placeholder="6 תווים, אותיות באנגלית וספרה"
-                    />
+                    >
+                        <input
+                            onInput={onInputPassword}
+                            type={passwordInputType}
+                            id="password"
+                            placeholder="6 תווים, אותיות באנגלית וספרה"
+                        />
+                        <span onClick={onClickTogglePasswordType}>
+                            {passwordInputType === "password"
+                                ? icons.notVisable
+                                : icons.visable}
+                        </span>
+                    </div>
                     {!isPasswordValid && (
                         <p className="error-message">{passwordErrorMessage}</p>
                     )}
-                    <label className="password-repeat-label">
-                        {isPasswordRepeatValid && icons.check}
-                    </label>
-                    <input
+                    <div
+                        id="input-container-2"
                         className={
                             !isPasswordRepeatBorderActive
                                 ? ""
-                                : isPasswordRepeatValid
+                                : isPasswordValid
                                 ? "valid-border"
                                 : "error-border"
                         }
-                        onInput={onInputPasswordRepeat}
-                        type="password"
-                        id="password-repeat"
-                        placeholder="חזור על הסיסמה שהקלדת"
-                    />
+                    >
+                        <input
+                            onInput={onInputPasswordRepeat}
+                            type={passwordRepeatInputType}
+                            id="password"
+                            placeholder="חזור על הסיסמה שהקלדת"
+                        />
+                        <span onClick={onClickTogglePasswordRepeatType}>
+                            {passwordRepeatInputType === "password"
+                                ? icons.notVisable
+                                : icons.visable}
+                        </span>
+                    </div>
+                    <label className="password-repeat-label">
+                        {isPasswordRepeatValid && icons.check}
+                    </label>
+
                     {!isPasswordRepeatValid && (
                         <p className="error-message">
                             {passwordRepeatErrorMessage}
@@ -195,8 +239,8 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                 </button>
             </form>
             <p>
-                לא רשום?{" "}
-                <span onClick={() => setIsLoginMode(true)}>להרשמה</span>
+                כבר רשום?{" "}
+                <span onClick={() => setIsLoginMode(true)}>להתחברות</span>
             </p>
         </div>
     );

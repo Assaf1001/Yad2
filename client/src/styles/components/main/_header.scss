@@ -7,6 +7,8 @@
     border-top: 5px solid $orange;
     background-color: white;
     box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
 
     .nav-container {
         display: flex;
@@ -24,6 +26,7 @@
         nav {
             display: flex;
             height: 100%;
+            white-space: nowrap;
             & > div {
                 height: 100%;
                 padding: 0 20px;
@@ -59,9 +62,19 @@
                         li {
                             white-space: nowrap;
                             padding: 8px 0;
+
+                            a:hover,
                             &:hover {
                                 color: $orange;
                                 cursor: pointer;
+                            }
+                            a {
+                                text-decoration: none;
+                                color: black;
+                            }
+                            svg {
+                                margin-left: 0.5rem;
+                                color: #555555;
                             }
                         }
                     }
@@ -69,6 +82,55 @@
                         margin-left: 3rem;
                     }
                 }
+            }
+        }
+    }
+
+    .icons-container {
+        display: flex;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin-left: 1rem;
+            white-space: nowrap;
+
+            @media (max-width: 1500px) {
+                p {
+                    display: none;
+                }
+            }
+
+            svg {
+                color: #555555;
+                font-size: 1.5rem;
+                margin-left: 0.5rem;
+            }
+
+            &:hover {
+                background-color: #f9f9f9;
+                cursor: pointer;
+            }
+        }
+
+        .new-message {
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 193px;
+            margin: 0 1.5rem 0 1rem;
+            background-color: #0fca80;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #0e9c64;
             }
         }
     }
