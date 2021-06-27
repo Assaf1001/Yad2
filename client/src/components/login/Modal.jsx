@@ -12,6 +12,7 @@ const Modal = ({ onClickToggleModal }) => {
 
     return (
         <div>
+            <div onClick={onClickToggleModal} className="blur-backgroud"></div>
             {errorMessage && (
                 <Notification
                     errorMessage={errorMessage}

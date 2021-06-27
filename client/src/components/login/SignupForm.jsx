@@ -195,12 +195,15 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                     {!isPasswordValid && (
                         <p className="error-message">{passwordErrorMessage}</p>
                     )}
+                    <label className="password-repeat-label">
+                        {isPasswordRepeatValid && icons.check}
+                    </label>
                     <div
-                        id="input-container-2"
+                        id="input-container"
                         className={
                             !isPasswordRepeatBorderActive
                                 ? ""
-                                : isPasswordValid
+                                : isPasswordRepeatValid
                                 ? "valid-border"
                                 : "error-border"
                         }
@@ -217,10 +220,6 @@ const SignupForm = ({ setIsLoginMode, setErrorMessage }) => {
                                 : icons.visable}
                         </span>
                     </div>
-                    <label className="password-repeat-label">
-                        {isPasswordRepeatValid && icons.check}
-                    </label>
-
                     {!isPasswordRepeatValid && (
                         <p className="error-message">
                             {passwordRepeatErrorMessage}

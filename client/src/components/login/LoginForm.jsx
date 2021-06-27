@@ -3,8 +3,9 @@ import validator from "validator";
 import { loginAction } from "../../actions/loginAction";
 import { LoginContext } from "../../context/LoginContext";
 import { saveUserOnCookie } from "../../cookies/cookies";
-import icons from "../../icons/icons";
 import { login } from "../../server/users";
+
+import icons from "../../icons/icons";
 
 const LoginForm = ({ setIsLoginMode, setErrorMessage }) => {
     const { dispatchUserData } = useContext(LoginContext);
