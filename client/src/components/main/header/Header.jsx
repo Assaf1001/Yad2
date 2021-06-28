@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Modal from "../../login/Modal";
+import { ConnectionContext } from "../../../context/ConnectionContext";
 import Category from "./Category";
+import Modal from "../../login/Modal";
 
 import headerData from "./headerData";
 import logo from "../../../images/yad2Logo.png";
@@ -10,16 +11,11 @@ import icons from "../../../icons/icons";
 const Header = () => {
     const history = useHistory();
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const onClickToggleModal = () => {
-        if (!isModalOpen) setIsModalOpen(true);
-        else setIsModalOpen(false);
-    };
+    const { isModalOpen, onClickToggleModal } = useContext(ConnectionContext);
 
     return (
         <div className="header">
-            {isModalOpen && <Modal onClickToggleModal={onClickToggleModal} />}
+            {isModalOpen && <Modal />}
             <div className="nav-container">
                 <img
                     onClick={() => history.push("/home")}

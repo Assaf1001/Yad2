@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { ConnectionContext } from "../../context/ConnectionContext";
 
-const Notification = ({ errorMessage, setErrorMessage }) => {
+const Notification = () => {
+    const { errorMessage, setErrorMessage } = useContext(ConnectionContext);
+
     useEffect(() => {
         setTimeout(() => {
             setErrorMessage("");

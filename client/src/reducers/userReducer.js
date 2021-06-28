@@ -1,14 +1,14 @@
-export const initalizeLoginState = { user: null, token: null };
+export const initialUserState = { user: null, token: null };
 
-const loginReducer = (state, action) => {
+const userReducer = (state, action) => {
     switch (action.type) {
         case "LOGIN":
             return { user: action.user, token: action.token };
         case "LOGOUT":
-            return { ...initalizeLoginState };
+            return { ...initialUserState };
         default:
             return state;
     }
 };
 
-export default loginReducer;
+export default userReducer;
