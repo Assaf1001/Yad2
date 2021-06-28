@@ -44,6 +44,11 @@ import {
     faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
+import apple from "../images/socialMediaIcons/apple.png";
+import facebook from "../images/socialMediaIcons/facebook.png";
+import googlePlay from "../images/socialMediaIcons/google-play.png";
+import youtube from "../images/socialMediaIcons/youtube.png";
+
 const icons = {
     check: <FontAwesomeIcon icon={faCheck} />,
     hammer: <FontAwesomeIcon icon={faGavel} />,
@@ -59,6 +64,8 @@ const icons = {
     visable: <FontAwesomeIcon icon={faEye} />,
     notVisable: <FontAwesomeIcon icon={faEyeSlash} />,
 };
+
+export const socialMediaIcons = [apple, facebook, googlePlay, youtube];
 // const icons = {
 //     user: <FontAwesomeIcon icon={faUser} />,
 //     home: <FontAwesomeIcon icon={faHome} />,

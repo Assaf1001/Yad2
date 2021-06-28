@@ -6,6 +6,7 @@ import Header from "../components/main/header/Header";
 import HomePage from "../components/pages/HomePage";
 import NotFoundPage from "../components/pages/NotFoundPage";
 import ForSalePage from "../components/pages/forSale/ForSalePage";
+import Footer from "../components/main/footer/Footer";
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -21,6 +22,7 @@ const AppRouter = () => (
                 <Route path="/forSale" component={ForSalePage} />
                 <Route component={NotFoundPage} />
             </Switch>
+            <Footer />
         </UserContextProvider>
     </BrowserRouter>
 );

@@ -1,0 +1,105 @@
+.footer {
+    padding: 50px 0 10px;
+    background-color: #363636;
+
+    p,
+    h6 {
+        width: 840px;
+        margin: 20px auto;
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        text-align: center;
+        color: #999;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        max-width: 950px;
+        height: 250px;
+        margin: 40px auto auto;
+        text-align: right;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            h5 {
+                color: white;
+                margin-bottom: 0;
+                font-size: 1.1rem;
+                font-weight: 400;
+            }
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                max-height: 200px;
+                padding-right: 0;
+                flex-wrap: wrap;
+                li {
+                    color: #ccc;
+                    font-size: 0.875rem;
+                    font-weight: 200;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .social-media {
+        display: flex;
+        justify-content: space-between;
+        width: 180px;
+        margin: 30px auto;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: black;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: #606060;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .copyright {
+        margin: 20px auto;
+        width: 580px;
+        font-size: 0.75rem;
+        line-height: 0.875rem;
+        color: #999;
+    }
+
+    hr {
+        width: 420px;
+        border: 0.5px solid #606060;
+        margin: auto;
+    }
+
+    .internal-links {
+        display: flex;
+        justify-content: space-around;
+        width: 600px;
+        margin: 20px auto;
+
+        h6 {
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+    }
+
+    h6,
+    li {
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
