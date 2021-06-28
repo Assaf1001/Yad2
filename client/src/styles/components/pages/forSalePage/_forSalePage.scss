@@ -1,0 +1,42 @@
+.for-sale {
+    width: 100%;
+    height: calc(100vh - 5rem - 5px);
+    margin-top: 5rem;
+
+    .page-header {
+        // position: absolute;
+        display: flex;
+        align-items: center;
+        height: 55px;
+        width: 100%;
+        border-top: 3px solid $light-gray;
+        box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.25);
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            width: 100%;
+            margin-right: 100px;
+            padding-left: 1rem;
+
+            .right-nav,
+            .left-nav {
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+
+                div {
+                    margin-right: 1.5rem;
+                }
+                svg {
+                    margin-left: 0.5rem;
+                }
+                p {
+                    display: inline;
+                }
+            }
+        }
+    }
+}

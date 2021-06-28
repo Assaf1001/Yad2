@@ -10,7 +10,7 @@ import icons from "../../../icons/icons";
 const Header = () => {
     const history = useHistory();
 
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const onClickToggleModal = () => {
         if (!isModalOpen) setIsModalOpen(true);
