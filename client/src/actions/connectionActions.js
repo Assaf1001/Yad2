@@ -25,6 +25,13 @@ export const setPasswordRepeatAction = (
     passwordRepeatErrorMessage,
 });
 
+export const changeEmailAction = (email) => ({ type: "CHANGE_EMAIL", email });
+
+export const changePasswordAction = (password) => ({
+    type: "CHANGE_PASSWORD",
+    password,
+});
+
 export const initLoginAction = () => ({ type: "INIT_LOGIN" });
 
 export const initSignupAction = () => ({ type: "INIT_SIGNUP" });

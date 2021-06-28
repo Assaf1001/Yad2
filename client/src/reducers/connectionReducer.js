@@ -40,6 +40,10 @@ const connectionReducer = (state, action) => {
                 isPasswordRepeatValid: action.isPasswordRepeatValid,
                 passwordRepeatErrorMessage: action.passwordRepeatErrorMessage,
             };
+        case "CHANGE_EMAIL":
+            return { ...state, email: action.email };
+        case "CHANGE_PASSWORD":
+            return { ...state, password: action.password };
         case "INIT_LOGIN":
             return initialLoginState;
         case "INIT_SIGNUP":

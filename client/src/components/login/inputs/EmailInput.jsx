@@ -1,7 +1,10 @@
 import validator from "validator";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ConnectionContext } from "../../../context/ConnectionContext";
-import { setEmailAction } from "../../../actions/connectionActions";
+import {
+    changeEmailAction,
+    setEmailAction,
+} from "../../../actions/connectionActions";
 
 import icons from "../../../icons/icons";
 
@@ -14,6 +17,10 @@ const EmailInput = () => {
         dispatchSignupData,
     } = useContext(ConnectionContext);
     const [isEmailBorderActive, setIsEmailBorderActive] = useState(false);
+
+    useEffect(() => {
+        return () => setIsEmailBorderActive(false);
+    }, [isLoginMode]);
 
     const onInputEmail = (event) => {
         setIsEmailBorderActive(true);
@@ -52,6 +59,16 @@ const EmailInput = () => {
                         ? "valid-border"
                         : "error-border"
                 }
+                onChange={(event) =>
+                    isLoginMode
+                        ? dispatchLoginData(
+                              changeEmailAction(event.target.value)
+                          )
+                        : dispatchSignupData(
+                              changeEmailAction(event.target.value)
+                          )
+                }
+                value={isLoginMode ? loginData.email : signupData.email}
                 type="text"
                 id="email"
                 placeholder="your@mail.com"

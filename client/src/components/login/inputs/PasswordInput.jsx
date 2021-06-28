@@ -1,6 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ConnectionContext } from "../../../context/ConnectionContext";
-import { setPasswordAction } from "../../../actions/connectionActions";
+import {
+    changePasswordAction,
+    setPasswordAction,
+} from "../../../actions/connectionActions";
 
 import icons from "../../../icons/icons";
 
@@ -14,6 +17,10 @@ const PasswordInput = () => {
     } = useContext(ConnectionContext);
     const [isPasswordBorderActive, setIsPasswordBorderActive] = useState(false);
     const [passwordInputType, setPasswordInputType] = useState("password");
+
+    useEffect(() => {
+        return () => setIsPasswordBorderActive(false);
+    }, [isLoginMode]);
 
     const onInputPasswordLogin = (event) => {
         setIsPasswordBorderActive(true);
@@ -34,6 +41,10 @@ const PasswordInput = () => {
             dispatchSignupData(setPasswordAction(value, true, ""));
         } else {
             switch (true) {
+                case !/[a-zA-z]/.test(value):
+                    return dispatchSignupData(
+                        setPasswordAction("", false, "תווים לא תקינים הוזנו")
+                    );
                 case value.length === 0:
                     return dispatchSignupData(
                         setPasswordAction("", false, "שדה חובה")
@@ -95,6 +106,18 @@ const PasswordInput = () => {
                             ? onInputPasswordLogin
                             : onInputPasswordSignup
                     }
+                    onChange={(event) =>
+                        isLoginMode
+                            ? dispatchLoginData(
+                                  changePasswordAction(event.target.value)
+                              )
+                            : dispatchSignupData(
+                                  changePasswordAction(event.target.value)
+                              )
+                    }
+                    value={
+                        isLoginMode ? loginData.password : signupData.password
+                    }
                     type={passwordInputType}
                     id="password"
                     placeholder={
@@ -116,7 +139,7 @@ const PasswordInput = () => {
                         : signupData.passwordErrorMessage}
                 </p>
             )}
-            <p>שכחתי סיסמה</p>
+            {isLoginMode && <p className="forgot-password">שכחתי סיסמה</p>}
         </>
     );
 };
