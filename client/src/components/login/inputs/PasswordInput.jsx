@@ -41,13 +41,13 @@ const PasswordInput = () => {
             dispatchSignupData(setPasswordAction(value, true, ""));
         } else {
             switch (true) {
-                case !/[a-zA-z]/.test(value):
-                    return dispatchSignupData(
-                        setPasswordAction("", false, "תווים לא תקינים הוזנו")
-                    );
                 case value.length === 0:
                     return dispatchSignupData(
                         setPasswordAction("", false, "שדה חובה")
+                    );
+                case !/([!@#$%^&*?])|([a-zA-Z])|([0-9])/.test(value):
+                    return dispatchSignupData(
+                        setPasswordAction("", false, "תווים לא תקינים הוזנו")
                     );
                 case value.length < 6:
                     return dispatchSignupData(

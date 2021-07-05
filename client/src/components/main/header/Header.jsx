@@ -7,16 +7,18 @@ import Modal from "../../login/Modal";
 import headerData from "./headerData";
 import logo from "../../../images/yad2Logo.png";
 import icons from "../../../icons/icons";
+import { GlobalContext } from "../../../context/GlobalContext";
 
 const Header = () => {
     const history = useHistory();
 
+    const { headerClassName } = useContext(GlobalContext);
     const { isModalOpen, onClickToggleModal } = useContext(ConnectionContext);
 
     return (
-        <div className="header">
+        <div className={headerClassName}>
             {isModalOpen && <Modal />}
-            <div className="nav-container">
+            <div className={"nav-container"}>
                 <img
                     onClick={() => history.push("/home")}
                     src={logo}

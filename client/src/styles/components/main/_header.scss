@@ -27,6 +27,7 @@
             display: flex;
             height: 100%;
             white-space: nowrap;
+            z-index: 2;
             & > div {
                 height: 100%;
                 padding: 0 20px;
@@ -62,15 +63,20 @@
                         li {
                             white-space: nowrap;
                             padding: 8px 0;
+                            color: #363636;
 
                             a:hover,
                             &:hover {
                                 color: $orange;
                                 cursor: pointer;
+                                svg {
+                                    color: $orange;
+                                    cursor: pointer;
+                                }
                             }
                             a {
                                 text-decoration: none;
-                                color: black;
+                                color: #363636;
                             }
                             svg {
                                 margin-left: 0.5rem;
@@ -131,6 +137,20 @@
 
             &:hover {
                 background-color: #0e9c64;
+            }
+        }
+    }
+}
+
+.page-open {
+    box-shadow: none;
+
+    .nav-container {
+        nav {
+            & > div {
+                p {
+                    color: #363636;
+                }
             }
         }
     }
