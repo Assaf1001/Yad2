@@ -1,18 +1,31 @@
-import React from "react";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import React, { useState } from "react";
+import Arrow from "./Arrow";
+
+import Drawer from "./Drawer";
 
 const Dropdown = ({ title, data }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onClickToggleIsOpen = () => {
+        if (isOpen) setIsOpen(false);
+        else setIsOpen(true);
+    };
+
     return (
-        <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <h2>{title}</h2>
-            </AccordionSummary>
-            {/* {data.map((dataItem, i) => (
-                <Accordion></Accordion>
-            ))} */}
-        </Accordion>
+        <div className="dropdown">
+            <button type="button" onClick={onClickToggleIsOpen}>
+                <h5>{title}</h5>
+                <Arrow isClicked={isOpen} />
+            </button>
+            {isOpen && (
+                <div className="dropdown-content">
+                    {data.map((listItem, i) => (
+                        <Drawer key={i} list={listItem} />
+                    ))}
+                    <p onClick={onClickToggleIsOpen}>בחירה</p>
+                </div>
+            )}
+        </div>
     );
 };
 
