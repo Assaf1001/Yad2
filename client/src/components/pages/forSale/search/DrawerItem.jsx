@@ -5,17 +5,14 @@ import CheckBoxButton from "./CheckBoxButton";
 
 const DrawerItem = ({ parentKey, listItem, isListMarked }) => {
     const { dispatchSearchData } = useContext(SearchContext);
-    const [isMarked, setIsMarked] = useState(false);
 
     const onClickSelectItem = () => {
         dispatchSearchData(setKindAction(parentKey, listItem));
-        if (isMarked) setIsMarked(false);
-        else setIsMarked(true);
     };
 
     return (
         <div onClick={onClickSelectItem} className="drawer-item">
-            <CheckBoxButton isMarked={isMarked} isListMarked={isListMarked} />
+            <CheckBoxButton parentKey={parentKey} listItem={listItem} />
             <li>{listItem}</li>
         </div>
     );

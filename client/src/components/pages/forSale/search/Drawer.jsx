@@ -11,9 +11,7 @@ import DrawerItem from "./DrawerItem";
 
 const Drawer = ({ list }) => {
     const { searchData, dispatchSearchData } = useContext(SearchContext);
-
     const [isOpen, setIsOpen] = useState(false);
-    const [isListMarked, setIsListMarked] = useState(false);
 
     const onClickToggleIsOpen = () => {
         if (isOpen) setIsOpen(false);
@@ -27,9 +25,6 @@ const Drawer = ({ list }) => {
         ) {
             if (list.key === "all") dispatchSearchData(setKindAllAction());
             else dispatchSearchData(setKindCategoryAction(list.key, list.list));
-
-            if (isListMarked) setIsListMarked(false);
-            else setIsListMarked(true);
         }
     };
 
@@ -37,7 +32,7 @@ const Drawer = ({ list }) => {
         <div className="drawer">
             <div onClick={onClickSetKindArr} className="drawer-title">
                 <div>
-                    <CheckBoxButton isListMarked={isListMarked} />
+                    <CheckBoxButton listKey={list.key} />
                     <h6>{list.title}</h6>
                 </div>
                 {list.list && (
@@ -46,7 +41,6 @@ const Drawer = ({ list }) => {
                     </div>
                 )}
             </div>
-            {console.log(searchData)}
             {isOpen && (
                 <div className="drawer-content">
                     <ul>
@@ -55,7 +49,6 @@ const Drawer = ({ list }) => {
                                 key={i}
                                 parentKey={list.key}
                                 listItem={listItem}
-                                isListMarked={isListMarked}
                             />
                         ))}
                     </ul>
