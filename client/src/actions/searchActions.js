@@ -13,3 +13,23 @@ export const setKindCategoryAction = (key, itemList) => ({
 export const setKindAllAction = () => ({
     type: "SET_KIND_ALL",
 });
+
+export const setMinRoomsAction = (min) => ({
+    type: "SET_MIN_ROOMS",
+    min,
+});
+
+export const setMaxRoomsAction = (max) => ({
+    type: "SET_MAX_ROOMS",
+    max,
+});
+
+export const setMinPriceAction = (min) => ({
+    type: "SET_MIN_PRICE",
+    min,
+});
+
+export const setMaxPriceAction = (max) => ({
+    type: "SET_MAX_PRICE",
+    max,
+});

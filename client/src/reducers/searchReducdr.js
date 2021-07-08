@@ -2,18 +2,17 @@ import kindInputData from "../components/pages/forSale/search/kindInputData";
 
 export const initialSearchState = {
     kind: { apartments: [], houses: [], other: [] },
+    rooms: { min: null, max: null },
+    price: { min: null, max: null },
 };
 
 const searchReducer = (state, action) => {
     switch (action.type) {
         case "SET_KIND":
             const newKindArr = [...state.kind[action.key]];
-
-            if (newKindArr.includes(action.item)) {
+            if (newKindArr.includes(action.item))
                 newKindArr.splice(newKindArr.indexOf(action.item), 1);
-            } else {
-                newKindArr.push(action.item);
-            }
+            else newKindArr.push(action.item);
 
             return {
                 ...state,
@@ -22,12 +21,9 @@ const searchReducer = (state, action) => {
 
         case "SET_KIND_CATEGORY":
             let newKindCategoryArr = [...state.kind[action.key]];
-
-            if (newKindCategoryArr.length === action.itemList.length) {
+            if (newKindCategoryArr.length === action.itemList.length)
                 newKindCategoryArr = [];
-            } else {
-                newKindCategoryArr = action.itemList;
-            }
+            else newKindCategoryArr = action.itemList;
 
             return {
                 ...state,
@@ -55,24 +51,29 @@ const searchReducer = (state, action) => {
                         other: kindInputData.data[3].list,
                     },
                 };
-
+        case "SET_MIN_ROOMS":
+            return {
+                ...state,
+                rooms: { min: action.min, max: state.rooms.max },
+            };
+        case "SET_MAX_ROOMS":
+            return {
+                ...state,
+                rooms: { min: state.rooms.min, max: action.max },
+            };
+        case "SET_MIN_PRICE":
+            return {
+                ...state,
+                price: { min: action.min, max: state.price.max },
+            };
+        case "SET_MAX_PRICE":
+            return {
+                ...state,
+                price: { min: state.price.min, max: action.max },
+            };
         default:
             return state;
     }
 };
-// const searchReducer = (state, action) => {
-//     switch (action.type) {
-//         case "SET_KIND":
-//             const newKindArr = [...state.kindArr];
-//             if (newKindArr.includes(action.kind)) {
-//                 newKindArr.splice(newKindArr.indexOf(action.kind), 1);
-//             } else {
-//                 newKindArr.push(action.kind);
-//             }
-//             return { ...state, kindArr: newKindArr };
-//         default:
-//             return state;
-//     }
-// };
 
 export default searchReducer;

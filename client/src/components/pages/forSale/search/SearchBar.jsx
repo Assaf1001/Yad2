@@ -2,6 +2,8 @@ import React from "react";
 import SearchContextProvider from "../../../../context/SearchContext";
 import icons from "../../../../icons/icons";
 import KindInput from "./KindInput";
+import PriceInput from "./PriceInput";
+import RoomsInput from "./RoomsInput";
 
 const SearchBar = () => {
     return (
@@ -32,11 +34,8 @@ const SearchBar = () => {
                     </div>
 
                     <KindInput />
-
-                    <label htmlFor="rooms">חדרים</label>
-                    <label htmlFor="price">מחיר</label>
-                    <input type="number" />
-                    <input type="number" />
+                    <RoomsInput />
+                    <PriceInput />
                     <button>{icons.plus} חיפוש מתקדם</button>
                     <button type="submit">{icons.search} חפש</button>
                 </form>
