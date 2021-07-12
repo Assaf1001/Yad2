@@ -1,3 +1,8 @@
+export const setCityOrStreet = (cityOrStreet) => ({
+    type: "SET_CITY_OR_STREET",
+    cityOrStreet,
+});
+
 export const setKindAction = (key, item) => ({
     type: "SET_KIND",
     key,

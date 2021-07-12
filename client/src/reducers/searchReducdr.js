@@ -1,6 +1,7 @@
 import kindInputData from "../components/pages/forSale/search/kindInputData";
 
 export const initialSearchState = {
+    cityOrStreet: "",
     kind: { apartments: [], houses: [], other: [] },
     rooms: { min: null, max: null },
     price: { min: null, max: null },
@@ -8,6 +9,8 @@ export const initialSearchState = {
 
 const searchReducer = (state, action) => {
     switch (action.type) {
+        case "SET_CITY_OR_STREET":
+            return { ...state, cityOrStreet: action.cityOrStreet };
         case "SET_KIND":
             const newKindArr = [...state.kind[action.key]];
             if (newKindArr.includes(action.item))
