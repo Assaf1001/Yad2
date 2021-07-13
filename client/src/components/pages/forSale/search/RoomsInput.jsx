@@ -4,7 +4,7 @@ import {
     setMinRoomsAction,
 } from "../../../../actions/searchActions";
 import { SearchContext } from "../../../../context/SearchContext";
-import useOnClickOutsideClose from "../../../../hooks/onClickOutsiteClose";
+import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
 import Dropdown from "./Dropdown";
 
 const RoomsInput = () => {

@@ -1,35 +1,35 @@
 import React, { useContext } from "react";
 import {
-    setMaxPriceAction,
-    setMinPriceAction,
+    setMaxSizeAction,
+    setMinSizeAction,
 } from "../../../../actions/searchActions";
 import { SearchContext } from "../../../../context/SearchContext";
 
-const PriceInput = () => {
+const SizeInput = () => {
     const { dispatchSearchData } = useContext(SearchContext);
 
-    const onChangeSelectMinPrice = (event) => {
-        dispatchSearchData(setMinPriceAction(event.target.value));
+    const onChangeSelectMinSize = (event) => {
+        dispatchSearchData(setMinSizeAction(event.target.value));
     };
 
-    const onChangeSelectMaxPrice = (event) => {
-        dispatchSearchData(setMaxPriceAction(event.target.value));
+    const onChangeSelectMaxSize = (event) => {
+        dispatchSearchData(setMaxSizeAction(event.target.value));
     };
 
     return (
         <div className="input price-input">
-            <label htmlFor="price">מחיר</label>
+            <label htmlFor="size">גודל דירה (במ״ר)</label>
             <div className="inputs">
                 <input
-                    onChange={onChangeSelectMinPrice}
+                    onChange={onChangeSelectMinSize}
                     type="number"
-                    placeholder="ממחיר"
+                    placeholder="מ-"
                     min="0"
                 />
                 <input
-                    onChange={onChangeSelectMaxPrice}
+                    onChange={onChangeSelectMaxSize}
                     type="number"
-                    placeholder="עד מחיר"
+                    placeholder="עד-"
                     min="0"
                 />
             </div>
@@ -37,4 +37,4 @@ const PriceInput = () => {
     );
 };
 
-export default PriceInput;
+export default SizeInput;

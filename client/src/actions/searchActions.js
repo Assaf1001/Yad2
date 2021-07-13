@@ -38,3 +38,16 @@ export const setMaxPriceAction = (max) => ({
     type: "SET_MAX_PRICE",
     max,
 });
+
+export const setPorpertyAction = (property) => ({
+    type: "SET_PROPERTY",
+    property,
+});
+
+export const setMinFloorAction = (min) => ({ type: "SET_MIN_FLOOR", min });
+
+export const setMaxFloorAction = (max) => ({ type: "SET_MAX_FLOOR", max });
+
+export const setMinSizeAction = (min) => ({ type: "SET_MIN_SIZE", min });
+
+export const setMaxSizeAction = (max) => ({ type: "SET_MAX_SIZE", max });

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { createRef, useState } from "react";
 import SearchContextProvider from "../../../../context/SearchContext";
+import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
 import icons from "../../../../icons/icons";
 import AdvanceSearch from "./AdvanceSearch";
 import CityInput from "./CityInput";
@@ -8,6 +9,12 @@ import PriceInput from "./PriceInput";
 import RoomsInput from "./RoomsInput";
 
 const SearchBar = () => {
+    const ref = createRef();
+
+    useOnClickOutsideClose(ref, () => {
+        setIsOpen(false);
+    });
+
     const [isOpen, setIsOpen] = useState(false);
 
     const onInputToggleIsOpen = () => {
@@ -16,7 +23,7 @@ const SearchBar = () => {
     };
 
     return (
-        <div className="search-bar">
+        <div className="search-bar" ref={ref}>
             <SearchContextProvider>
                 <div className="search-header">
                     <h2>
@@ -37,7 +44,11 @@ const SearchBar = () => {
                     <KindInput />
                     <RoomsInput />
                     <PriceInput />
-                    <button type="button" onClick={onInputToggleIsOpen}>
+                    <button
+                        type="button"
+                        className="advance-button"
+                        onClick={onInputToggleIsOpen}
+                    >
                         {icons.plus} חיפוש מתקדם
                     </button>
                     <button type="submit">{icons.search} חפש</button>

@@ -8,6 +8,7 @@ const CheckBoxButton = ({ listKey, parentKey, listItem }) => {
     return (
         <div
             className={
+                searchData.properties.includes(listItem) ||
                 (listKey === "all" &&
                     (searchData.kind.apartments.length > 0 ||
                         searchData.kind.houses.length > 0 ||

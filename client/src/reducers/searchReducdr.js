@@ -5,6 +5,9 @@ export const initialSearchState = {
     kind: { apartments: [], houses: [], other: [] },
     rooms: { min: null, max: null },
     price: { min: null, max: null },
+    properties: [],
+    floor: { min: null, max: null },
+    size: { min: null, max: null },
 };
 
 const searchReducer = (state, action) => {
@@ -73,6 +76,38 @@ const searchReducer = (state, action) => {
             return {
                 ...state,
                 price: { min: state.price.min, max: action.max },
+            };
+        case "SET_PROPERTY":
+            const newPropertiesArr = [...state.properties];
+
+            if (newPropertiesArr.includes(action.property))
+                newPropertiesArr.splice(
+                    newPropertiesArr.indexOf(action.property),
+                    1
+                );
+            else newPropertiesArr.push(action.property);
+
+            return { ...state, properties: newPropertiesArr };
+
+        case "SET_MIN_FLOOR":
+            return {
+                ...state,
+                floor: { min: action.min, max: state.floor.max },
+            };
+        case "SET_MAX_FLOOR":
+            return {
+                ...state,
+                floor: { min: state.floor.min, max: action.max },
+            };
+        case "SET_MIN_SIZE":
+            return {
+                ...state,
+                size: { min: action.min, max: state.size.max },
+            };
+        case "SET_MAX_SIZE":
+            return {
+                ...state,
+                size: { min: state.size.min, max: action.max },
             };
         default:
             return state;

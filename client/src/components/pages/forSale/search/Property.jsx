@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { setPorpertyAction } from "../../../../actions/searchActions";
+import { SearchContext } from "../../../../context/SearchContext";
 import CheckBoxButton from "./CheckBoxButton";
 
 const Property = ({ property }) => {
+    const { searchData, dispatchSearchData } = useContext(SearchContext);
+
+    const onClickSelectProperty = () => {
+        dispatchSearchData(setPorpertyAction(property));
+    };
+
     return (
-        <div className="property">
-            <CheckBoxButton />
+        <div onClick={onClickSelectProperty} className="property">
+            <CheckBoxButton listItem={property} />
             <p>{property}</p>
         </div>
     );

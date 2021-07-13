@@ -1,5 +1,5 @@
 import React, { createRef, useState } from "react";
-import useOnClickOutsideClose from "../../../../hooks/onClickOutsiteClose";
+import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
 import Dropdown from "./Dropdown";
 import Drawer from "./Drawer";
 import kindInputData from "./kindInputData";
@@ -19,7 +19,7 @@ const KindInput = () => {
     });
 
     return (
-        <div className="input" ref={kindInputRef}>
+        <div className="input kind-input" ref={kindInputRef}>
             <label htmlFor="kind">סוג נכס</label>
             <Dropdown
                 isOpen={isOpen}
