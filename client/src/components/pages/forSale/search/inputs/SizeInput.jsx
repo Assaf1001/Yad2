@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import {
     setMaxSizeAction,
     setMinSizeAction,
-} from "../../../../actions/searchActions";
-import { SearchContext } from "../../../../context/SearchContext";
+} from "../../../../../actions/searchActions";
+import { SearchContext } from "../../../../../context/SearchContext";
 
 const SizeInput = () => {
     const { dispatchSearchData } = useContext(SearchContext);

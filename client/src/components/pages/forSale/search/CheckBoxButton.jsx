@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { SearchContext } from "../../../../context/SearchContext";
 import icons from "../../../../icons/icons";
 
-const CheckBoxButton = ({ listKey, parentKey, listItem }) => {
+const CheckBoxButton = ({ listKey, parentKey, listItem, isSelected }) => {
     const { searchData } = useContext(SearchContext);
 
     return (
         <div
             className={
+                isSelected ||
                 searchData.properties.includes(listItem) ||
                 (listKey === "all" &&
                     (searchData.kind.apartments.length > 0 ||

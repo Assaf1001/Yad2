@@ -2,10 +2,10 @@ import React, { createRef, useContext, useState } from "react";
 import {
     setMaxFloorAction,
     setMinFloorAction,
-} from "../../../../actions/searchActions";
-import { SearchContext } from "../../../../context/SearchContext";
-import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
-import Dropdown from "./Dropdown";
+} from "../../../../../actions/searchActions";
+import { SearchContext } from "../../../../../context/SearchContext";
+import useOnClickOutsideClose from "../../../../../hooks/useOnClickOutsiteClose";
+import Dropdown from "../Dropdown";
 
 const FloorInput = () => {
     const minFloorInputRef = createRef();
@@ -97,7 +97,6 @@ const FloorInput = () => {
                     </Dropdown>
                 </div>
             </div>
-            {console.log(searchData)}
         </div>
     );
 };

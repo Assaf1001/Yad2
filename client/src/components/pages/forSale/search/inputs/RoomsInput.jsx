@@ -2,10 +2,10 @@ import React, { createRef, useContext, useState } from "react";
 import {
     setMaxRoomsAction,
     setMinRoomsAction,
-} from "../../../../actions/searchActions";
-import { SearchContext } from "../../../../context/SearchContext";
-import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
-import Dropdown from "./Dropdown";
+} from "../../../../../actions/searchActions";
+import { SearchContext } from "../../../../../context/SearchContext";
+import useOnClickOutsideClose from "../../../../../hooks/useOnClickOutsiteClose";
+import Dropdown from "../Dropdown";
 
 const RoomsInput = () => {
     const roomsInputRef = createRef();
@@ -73,8 +73,8 @@ const RoomsInput = () => {
                         onClickToggleIsOpen={onClickToggleIsMinRoomsOpen}
                     >
                         <ul>
-                            {generateRoomsList().map((listItem) => (
-                                <li onClick={onClickSelectMinRooms}>
+                            {generateRoomsList().map((listItem, i) => (
+                                <li key={i} onClick={onClickSelectMinRooms}>
                                     {listItem}
                                 </li>
                             ))}
@@ -86,11 +86,16 @@ const RoomsInput = () => {
                         onClickToggleIsOpen={onClickToggleIsMaxRoomsOpen}
                     >
                         <ul>
-                            {generateRoomsList().map((listItem) => (
-                                <li onClick={onClickSelectMaxRooms}>
-                                    {listItem}
-                                </li>
-                            ))}
+                            {generateRoomsList()
+                                .filter(
+                                    (listItem) =>
+                                        listItem >= searchData.rooms.min
+                                )
+                                .map((listItem, i) => (
+                                    <li key={i} onClick={onClickSelectMaxRooms}>
+                                        {listItem}
+                                    </li>
+                                ))}
                         </ul>
                     </Dropdown>
                 </div>

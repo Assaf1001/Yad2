@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { setKindAction } from "../../../../actions/searchActions";
 import { SearchContext } from "../../../../context/SearchContext";
 import CheckBoxButton from "./CheckBoxButton";
 
-const DrawerItem = ({ parentKey, listItem, isListMarked }) => {
+const DrawerItem = ({ parentKey, listItem }) => {
     const { dispatchSearchData } = useContext(SearchContext);
 
     const onClickSelectItem = () => {

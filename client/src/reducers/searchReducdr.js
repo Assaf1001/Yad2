@@ -1,4 +1,4 @@
-import kindInputData from "../components/pages/forSale/search/kindInputData";
+import kindInputData from "../components/pages/forSale/search/inputs/kindInputData";
 
 export const initialSearchState = {
     cityOrStreet: "",
@@ -8,6 +8,8 @@ export const initialSearchState = {
     properties: [],
     floor: { min: null, max: null },
     size: { min: null, max: null },
+    date: { date: null, isNow: false },
+    freeText: null,
 };
 
 const searchReducer = (state, action) => {
@@ -109,6 +111,18 @@ const searchReducer = (state, action) => {
                 ...state,
                 size: { min: state.size.min, max: action.max },
             };
+        case "SET_DATE":
+            if (action.isNow)
+                return {
+                    ...state,
+                    date: { date: action.date, isNow: true },
+                };
+            return {
+                ...state,
+                date: { date: action.date, isNow: false },
+            };
+        case "SET_FREE_TEXT":
+            return { ...state, freeText: action.text };
         default:
             return state;
     }

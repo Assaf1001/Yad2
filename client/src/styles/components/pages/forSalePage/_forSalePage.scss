@@ -148,7 +148,12 @@
                 .input {
                     display: flex;
                     flex-direction: column;
+                    font-size: 0.825rem;
                     margin-left: 1rem;
+
+                    label {
+                        margin-bottom: 0.3rem;
+                    }
                 }
 
                 .advance-button {
@@ -305,8 +310,47 @@
 
         .part-2 {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 40px;
+            border-bottom: 1px solid #ccc;
+
+            .input {
+                margin: 1rem;
+            }
+
             input {
-                width: 123px;
+                margin-left: 0.5rem;
+            }
+        }
+
+        .part-3 {
+            justify-content: left;
+            input {
+                width: 332px;
+            }
+
+            .towns-only {
+                display: flex;
+                align-items: center;
+                margin-top: 1.3rem;
+
+                p {
+                    margin: 0;
+                    color: #363636;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    .check-box-button {
+                        border-color: #d86000;
+                    }
+                    .check-box-button__marked {
+                        background-color: #d86000;
+                    }
+                }
             }
         }
 
@@ -349,11 +393,14 @@
             display: flex;
 
             & > div {
+                margin-left: 0.5rem;
                 .dropdown {
                     width: 123px;
                     .dropdown-content {
                         width: 123px;
                         margin-right: 0;
+                        overflow: auto;
+                        height: 320px;
 
                         ul {
                             padding: 0;
@@ -382,15 +429,42 @@
 }
 
 .date-input {
-    input {
-        border: 1px solid #ccc;
-        width: 188px;
-        height: 36px;
-        color: #363636;
-    }
-}
+    .inputs {
+        display: flex;
+        align-items: center;
 
-.arrow {
+        input {
+            border: 1px solid #ccc;
+            width: 188px;
+            height: 36px;
+            color: #363636;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                cursor: pointer;
+                .check-box-button {
+                    border-color: #d86000;
+                }
+                .check-box-button__marked {
+                    background-color: #d86000;
+                }
+            }
+
+            p {
+                margin: 0;
+                color: #363636;
+                font-size: 1rem;
+                font-weight: 400;
+                &:hover {
+                    color: #363636;
+                }
+            }
+        }
+    }
 }
 
 .check-box-button {
@@ -425,6 +499,13 @@
             display: flex;
             margin: 0 auto;
             align-items: center;
+
+            .dropdown {
+                button {
+                    width: 73px;
+                }
+            }
+
             .dropdown-content {
                 display: flex;
                 width: 73px !important;

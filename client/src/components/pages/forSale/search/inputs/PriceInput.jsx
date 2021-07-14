@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import {
     setMaxPriceAction,
     setMinPriceAction,
-} from "../../../../actions/searchActions";
-import { SearchContext } from "../../../../context/SearchContext";
+} from "../../../../../actions/searchActions";
+import { SearchContext } from "../../../../../context/SearchContext";
 
 const PriceInput = () => {
     const { dispatchSearchData } = useContext(SearchContext);

@@ -1,6 +1,5 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
-    setKindAction,
     setKindAllAction,
     setKindCategoryAction,
 } from "../../../../actions/searchActions";
@@ -10,7 +9,7 @@ import CheckBoxButton from "./CheckBoxButton";
 import DrawerItem from "./DrawerItem";
 
 const Drawer = ({ list }) => {
-    const { searchData, dispatchSearchData } = useContext(SearchContext);
+    const { dispatchSearchData } = useContext(SearchContext);
     const [isOpen, setIsOpen] = useState(false);
 
     const onClickToggleIsOpen = () => {

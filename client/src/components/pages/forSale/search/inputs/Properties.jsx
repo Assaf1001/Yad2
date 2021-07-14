@@ -1,5 +1,4 @@
 import React from "react";
-import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
 import propertiesArray from "./propertiesArray";
 import Property from "./Property";
 

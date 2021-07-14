@@ -2,18 +2,15 @@ import React, { createRef, useState } from "react";
 import SearchContextProvider from "../../../../context/SearchContext";
 import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
 import icons from "../../../../icons/icons";
+import { getAddress } from "../../../../server/addressAPI";
 import AdvanceSearch from "./AdvanceSearch";
-import CityInput from "./CityInput";
-import KindInput from "./KindInput";
-import PriceInput from "./PriceInput";
-import RoomsInput from "./RoomsInput";
+import CityInput from "./inputs/CityInput";
+import KindInput from "./inputs/KindInput";
+import PriceInput from "./inputs/PriceInput";
+import RoomsInput from "./inputs/RoomsInput";
 
 const SearchBar = () => {
     const ref = createRef();
-
-    useOnClickOutsideClose(ref, () => {
-        setIsOpen(false);
-    });
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -22,6 +19,15 @@ const SearchBar = () => {
         else setIsOpen(true);
     };
 
+    const onSubmitSearchForm = (event) => {
+        event.preventDefault();
+
+        console.log("submited");
+    };
+
+    useOnClickOutsideClose(ref, () => {
+        setIsOpen(false);
+    });
     return (
         <div className="search-bar" ref={ref}>
             <SearchContextProvider>
@@ -39,7 +45,7 @@ const SearchBar = () => {
                         {icons.bell} קבלו התראות במייל על החיפוש
                     </div>
                 </div>
-                <form autoComplete="off">
+                <form onSubmit={onSubmitSearchForm} autoComplete="off">
                     <CityInput />
                     <KindInput />
                     <RoomsInput />

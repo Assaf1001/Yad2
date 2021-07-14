@@ -12,7 +12,7 @@ const ForSalePage = () => {
         return () => {
             setHeaderClassName("header");
         };
-    }, []);
+    }, [setHeaderClassName]);
 
     return (
         <div className="for-sale">
