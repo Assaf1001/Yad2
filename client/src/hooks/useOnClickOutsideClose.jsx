@@ -7,12 +7,12 @@ const useOnClickOutsideClose = (ref, handler) => {
             handler(event);
         };
 
-        document.addEventListener("mousedown", listener);
-        document.addEventListener("touchstart", listener);
+        document.addEventListener("onmousedown", listener);
+        document.addEventListener("ontouchstart", listener);
 
         return () => {
-            document.removeEventListener("mousedown", listener);
-            document.removeEventListener("touchstart", listener);
+            document.removeEventListener("onmousedown", listener);
+            document.removeEventListener("ontouchstart", listener);
         };
     }, [ref, handler]);
 };

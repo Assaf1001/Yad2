@@ -1,8 +1,7 @@
 import React, { createRef, useState } from "react";
 import SearchContextProvider from "../../../../context/SearchContext";
-import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsiteClose";
+import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsideClose";
 import icons from "../../../../icons/icons";
-import { getAddress } from "../../../../server/addressAPI";
 import AdvanceSearch from "./AdvanceSearch";
 import CityInput from "./inputs/CityInput";
 import KindInput from "./inputs/KindInput";
@@ -28,6 +27,7 @@ const SearchBar = () => {
     useOnClickOutsideClose(ref, () => {
         setIsOpen(false);
     });
+
     return (
         <div className="search-bar" ref={ref}>
             <SearchContextProvider>
@@ -57,7 +57,7 @@ const SearchBar = () => {
                     >
                         {icons.plus} חיפוש מתקדם
                     </button>
-                    <button type="submit">{icons.search} חפש</button>
+                    <button type="submit">{icons.search} חיפוש</button>
                     {isOpen && <AdvanceSearch />}
                 </form>
             </SearchContextProvider>

@@ -1,6 +1,6 @@
-export const setCityOrStreet = (cityOrStreet) => ({
-    type: "SET_CITY_OR_STREET",
-    cityOrStreet,
+export const setAddressAction = (address) => ({
+    type: "SET_ADDRESS",
+    address,
 });
 
 export const setKindAction = (key, item) => ({
@@ -59,3 +59,5 @@ export const setDateAction = (date, isNow) => ({
 });
 
 export const setFreeTextAction = (text) => ({ type: "SET_FREE_TEXT", text });
+
+export const initSearchAction = () => ({ type: "INIT_SEARCH" });

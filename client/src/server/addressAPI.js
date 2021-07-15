@@ -2,7 +2,7 @@ import axios from "axios";
 
 const addressesAPIurl = "https://data.gov.il/api/3/action/datastore_search";
 
-export const getAddress = async (value) => {
+export const searchAutoComplete = async (value) => {
     try {
         const res = await axios.get(addressesAPIurl, {
             params: {

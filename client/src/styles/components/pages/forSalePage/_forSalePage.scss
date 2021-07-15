@@ -173,6 +173,7 @@
                         background-color: #ccc;
                     }
                 }
+
                 button[type="submit"] {
                     @extend .advance-button;
                     min-width: 0;
@@ -183,7 +184,7 @@
                     margin-right: 1rem;
 
                     &:hover {
-                        background-color: #ff7100;
+                        background-color: #d86000;
                     }
                 }
             }
@@ -351,6 +352,26 @@
                         background-color: #d86000;
                     }
                 }
+            }
+        }
+
+        .part-4 {
+            justify-content: center;
+
+            button[type="submit"] {
+                margin: 1rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            button[type="reset"] {
+                position: absolute;
+                left: 0;
+                width: 75px;
+                border: none;
+                font-size: 0.8rem;
+                color: #363636;
             }
         }
 
@@ -560,6 +581,7 @@
     input {
         width: 212px;
         height: 36px;
+        padding: 0.5rem;
         background-color: white;
         border: 1px solid #ccc;
         outline: none;
@@ -570,6 +592,33 @@
             font-weight: 400;
             white-space: nowrap;
             color: #999999;
+        }
+    }
+
+    .dropdown {
+        .dropdown-content {
+            .result {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                p {
+                    margin: 0.5rem;
+                    color: #363636;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+                span {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    margin-left: 1rem;
+                }
+
+                &:hover {
+                    background-color: #eee;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

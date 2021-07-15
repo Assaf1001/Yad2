@@ -1,5 +1,5 @@
 import React, { createRef, useState } from "react";
-import useOnClickOutsideClose from "../../../../../hooks/useOnClickOutsiteClose";
+import useOnClickOutsideClose from "../../../../../hooks/useOnClickOutsideClose";
 import Dropdown from "../Dropdown";
 import Drawer from "../Drawer";
 import kindInputData from "./kindInputData";
