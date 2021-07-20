@@ -1,4 +1,4 @@
-import kindInputData from "../components/pages/forSale/search/inputs/kindInputData";
+import kindInputData from "../components/pages/forSale/search/data/kindInputData";
 
 export const initialSearchState = {
     address: null,

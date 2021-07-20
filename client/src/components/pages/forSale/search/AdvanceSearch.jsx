@@ -9,7 +9,7 @@ import { SearchContext } from "../../../../context/SearchContext";
 import { initSearchAction } from "../../../../actions/searchActions";
 
 const AdvanceSearch = () => {
-    const { searchData, dispatchSearchData } = useContext(SearchContext);
+    const { dispatchSearchData } = useContext(SearchContext);
     const [isSelected, setIsSelected] = useState(false);
 
     const onClickToggleIsSelected = () => {

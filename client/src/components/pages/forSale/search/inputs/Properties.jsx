@@ -1,5 +1,5 @@
 import React from "react";
-import propertiesArray from "./propertiesArray";
+import propertiesArray from "../data/propertiesArray";
 import Property from "./Property";
 
 const Properties = () => {

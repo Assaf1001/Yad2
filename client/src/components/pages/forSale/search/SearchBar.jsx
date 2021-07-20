@@ -1,35 +1,13 @@
-import React, { createRef, useState } from "react";
+import React, { createRef } from "react";
 import SearchContextProvider from "../../../../context/SearchContext";
-import useOnClickOutsideClose from "../../../../hooks/useOnClickOutsideClose";
+import SearchForm from "./SearchForm";
 import icons from "../../../../icons/icons";
-import AdvanceSearch from "./AdvanceSearch";
-import CityInput from "./inputs/CityInput";
-import KindInput from "./inputs/KindInput";
-import PriceInput from "./inputs/PriceInput";
-import RoomsInput from "./inputs/RoomsInput";
 
 const SearchBar = () => {
-    const ref = createRef();
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const onInputToggleIsOpen = () => {
-        if (isOpen) setIsOpen(false);
-        else setIsOpen(true);
-    };
-
-    const onSubmitSearchForm = (event) => {
-        event.preventDefault();
-
-        console.log("submited");
-    };
-
-    useOnClickOutsideClose(ref, () => {
-        setIsOpen(false);
-    });
+    const searchBarRef = createRef();
 
     return (
-        <div className="search-bar" ref={ref}>
+        <div className="search-bar" ref={searchBarRef}>
             <SearchContextProvider>
                 <div className="search-header">
                     <h2>
@@ -45,21 +23,7 @@ const SearchBar = () => {
                         {icons.bell} קבלו התראות במייל על החיפוש
                     </div>
                 </div>
-                <form onSubmit={onSubmitSearchForm} autoComplete="off">
-                    <CityInput />
-                    <KindInput />
-                    <RoomsInput />
-                    <PriceInput />
-                    <button
-                        type="button"
-                        className="advance-button"
-                        onClick={onInputToggleIsOpen}
-                    >
-                        {icons.plus} חיפוש מתקדם
-                    </button>
-                    <button type="submit">{icons.search} חיפוש</button>
-                    {isOpen && <AdvanceSearch />}
-                </form>
+                <SearchForm searchBarRef={searchBarRef} />
             </SearchContextProvider>
         </div>
     );

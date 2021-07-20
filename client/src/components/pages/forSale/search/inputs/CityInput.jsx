@@ -34,6 +34,7 @@ const CityInput = () => {
         <div className="input city-input">
             <label htmlFor="city">חפשו עיר או רחוב</label>
             <input
+                onChange={(event) => setValue(event.target.value)}
                 onInput={(event) => {
                     onInputToggleIsOpen(event);
                     onInputSelectCity(event);

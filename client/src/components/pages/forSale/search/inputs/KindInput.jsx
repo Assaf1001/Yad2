@@ -2,7 +2,7 @@ import React, { createRef, useState } from "react";
 import useOnClickOutsideClose from "../../../../../hooks/useOnClickOutsideClose";
 import Dropdown from "../Dropdown";
 import Drawer from "../Drawer";
-import kindInputData from "./kindInputData";
+import kindInputData from "../data/kindInputData";
 
 const KindInput = () => {
     const kindInputRef = createRef();

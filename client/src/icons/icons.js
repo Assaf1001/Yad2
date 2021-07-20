@@ -46,6 +46,7 @@ import {
     faPlus,
     faAngleDown,
     faAngleUp,
+    faChild,
 } from "@fortawesome/free-solid-svg-icons";
 
 import apple from "./socialMediaIcons/apple.png";
@@ -71,6 +72,7 @@ const icons = {
     plus: <FontAwesomeIcon icon={faPlus} />,
     arrowDown: <FontAwesomeIcon icon={faAngleDown} />,
     arrowUp: <FontAwesomeIcon icon={faAngleUp} />,
+    human: <FontAwesomeIcon icon={faChild} />,
 };
 
 export const socialMediaIcons = [apple, facebook, googlePlay, youtube];
