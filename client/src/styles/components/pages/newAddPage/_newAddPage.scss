@@ -1,0 +1,81 @@
+.new-add {
+    width: 100%;
+    height: calc(100vh - 5rem);
+    max-width: 880px;
+    margin: 5rem auto 0;
+
+    .step {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        background-color: #fff;
+        margin: 2rem 0;
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin: 0 1rem 0 0;
+
+            .circle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 24px;
+                width: 24px;
+                border: 2px solid #ccc;
+                border-radius: 50%;
+                font-size: 1.125rem;
+                font-weight: 500;
+                margin-left: 0.5rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+        }
+        .step-content {
+            padding: 2rem;
+        }
+
+        .step1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .step1-item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                width: 162px;
+                height: 152px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+
+                p {
+                    margin: 0.5rem;
+                    font-weight: 500;
+                    color: #363636;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    border: 1px solid $orange;
+                    p {
+                        color: $orange;
+                    }
+                    svg {
+                        .sell-house,
+                        .rent-house,
+                        .roommates,
+                        .Business-real-estate {
+                            fill: $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

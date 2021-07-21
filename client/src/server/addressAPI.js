@@ -23,3 +23,27 @@ export const searchAutoComplete = async (value) => {
         throw new Error(err.response.data.message);
     }
 };
+
+export const getCity = async (value) => {
+    try {
+        const res = await axios.get(addressesAPIurl, {
+            params: {
+                resource_id: "9ad3862c-8391-4b2f-84a4-2d4c68625f4b",
+                q: value + "*",
+                limit: 100,
+            },
+        });
+
+        const records = res.data.result.records;
+        const citiesArray = [];
+        for (let record of records) {
+            if (record.שם_רחוב + " " === record.שם_ישוב) {
+                citiesArray.push(record.שם_ישוב);
+            }
+        }
+
+        return citiesArray;
+    } catch (err) {
+        throw new Error(err.response.data.message);
+    }
+};

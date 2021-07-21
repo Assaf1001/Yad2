@@ -510,7 +510,22 @@ body {
   margin: 0 auto;
   max-width: 1000px;
 }
-.for-sale .top-section .accessablity {
+.for-sale .top-section .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.for-sale .top-section .title h2 {
+  align-self: flex-start;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.for-sale .top-section .title h2 span {
+  color: #999999;
+}
+.for-sale .top-section .title .accessablity {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -520,15 +535,15 @@ body {
   background-color: #002f75;
   border-radius: 3px;
 }
-.for-sale .top-section .accessablity svg {
+.for-sale .top-section .title .accessablity svg {
   font-size: 1.8rem;
 }
-.for-sale .top-section .accessablity p {
+.for-sale .top-section .title .accessablity p {
   margin: 0 1rem 0 0;
   font-size: 0.825rem;
   font-weight: 500;
 }
-.for-sale .top-section .accessablity:hover {
+.for-sale .top-section .title .accessablity:hover {
   background-color: #002151;
 }
 .for-sale .page-header {
@@ -1069,4 +1084,176 @@ body {
 .city-input .dropdown .dropdown-content .result:hover {
   background-color: #eee;
   cursor: pointer;
+}
+
+.publish-add {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  max-width: 1020px;
+  margin: 5rem auto 0;
+}
+.publish-add h1 {
+  margin-top: 10rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #363636;
+  text-align: center;
+}
+.publish-add .categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.publish-add .categories .row1,
+.publish-add .categories .row2,
+.publish-add .categories .row3 {
+  display: grid;
+  grid-column-gap: 1.5625rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.publish-add .categories .row1 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.publish-add .categories .row1 .publish-add-item {
+  height: 225px;
+}
+.publish-add .categories .row2 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.publish-add .categories .row2 .publish-add-item {
+  height: 210px;
+}
+.publish-add .categories .row3 {
+  grid-template-columns: repeat(7, 1fr);
+  grid-column-gap: 1.2rem;
+}
+.publish-add .categories .row3 .publish-add-item {
+  height: 56px;
+}
+.publish-add .categories .row3 h2 {
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  padding: 1rem;
+}
+.publish-add .categories .row3 h2:hover {
+  cursor: pointer;
+  color: #ff7100;
+}
+.publish-add .categories .publish-add-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.publish-add .categories .publish-add-item h2 {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 500;
+  text-align: center;
+}
+.publish-add .categories .publish-add-item p {
+  width: 70%;
+  margin: 0.5rem 0 1rem;
+  text-align: center;
+  color: gray;
+}
+.publish-add .categories .publish-add-item button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff7100;
+  color: white;
+  border-radius: 0.125rem;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+.publish-add .categories .publish-add-item:hover {
+  cursor: pointer;
+}
+.publish-add .categories .publish-add-item:hover svg .realestate_part,
+.publish-add .categories .publish-add-item:hover svg .vehicle,
+.publish-add .categories .publish-add-item:hover svg .yad2,
+.publish-add .categories .publish-add-item:hover svg .business,
+.publish-add .categories .publish-add-item:hover svg .professionClass,
+.publish-add .categories .publish-add-item:hover svg .Business-real-estate,
+.publish-add .categories .publish-add-item:hover svg .mobileClass {
+  fill: #ff7100 !important;
+}
+
+.new-add {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  max-width: 880px;
+  margin: 5rem auto 0;
+}
+.new-add .step {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 2rem 0;
+}
+.new-add .step .step-header {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem 0 0;
+}
+.new-add .step .step-header .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.new-add .step .step-header p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.new-add .step .step-content {
+  padding: 2rem;
+}
+.new-add .step .step1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.new-add .step .step1 .step1-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 162px;
+  height: 152px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.new-add .step .step1 .step1-item p {
+  margin: 0.5rem;
+  font-weight: 500;
+  color: #363636;
+}
+.new-add .step .step1 .step1-item:hover {
+  cursor: pointer;
+  border: 1px solid #ff7100;
+}
+.new-add .step .step1 .step1-item:hover p {
+  color: #ff7100;
+}
+.new-add .step .step1 .step1-item:hover svg .sell-house,
+.new-add .step .step1 .step1-item:hover svg .rent-house,
+.new-add .step .step1 .step1-item:hover svg .roommates,
+.new-add .step .step1 .step1-item:hover svg .Business-real-estate {
+  fill: #ff7100;
 }

@@ -10,26 +10,44 @@
         align-items: center;
         margin: 0 auto;
         max-width: 1000px;
-        .accessablity {
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
-            height: 40px;
-            width: 100px;
-            color: white;
-            background-color: #002f75;
-            border-radius: 3px;
-            svg {
-                font-size: 1.8rem;
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 0.5rem 0;
+
+            h2 {
+                align-self: flex-start;
+                font-size: 1rem;
+                font-weight: 400;
+
+                span {
+                    color: #999999;
+                }
             }
-            p {
-                margin: 0 1rem 0 0;
-                font-size: 0.825rem;
-                font-weight: 500;
-            }
-            &:hover {
-                background-color: #002151;
+
+            .accessablity {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+                width: 100px;
+                color: white;
+                background-color: #002f75;
+                border-radius: 3px;
+                svg {
+                    font-size: 1.8rem;
+                }
+                p {
+                    margin: 0 1rem 0 0;
+                    font-size: 0.825rem;
+                    font-weight: 500;
+                }
+                &:hover {
+                    background-color: #002151;
+                }
             }
         }
         img {

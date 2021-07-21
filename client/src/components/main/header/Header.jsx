@@ -40,7 +40,7 @@ const Header = () => {
                 <div onClick={onClickToggleModal}>
                     {icons.user} <p>התחברות</p>
                 </div>
-                <Link to="/newMessage" className="new-message">
+                <Link to="/publishAdd" className="new-message">
                     <p>+ פרסום מודעה חדשה</p>
                 </Link>
             </div>

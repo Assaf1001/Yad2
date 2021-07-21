@@ -20,12 +20,14 @@ const ForSalePage = () => {
         <div className="for-sale">
             <PageHeader />
             <div className="top-section">
-                <h2>
-                    נדל״ן למכירה / <span>ראשי</span>
-                </h2>
-                <div className="accessablity">
-                    {icons.human}
-                    <p>נגישות</p>
+                <div className="title">
+                    <h2>
+                        ראשי <span> / נדל״ן למכירה</span>
+                    </h2>
+                    <div className="accessablity">
+                        {icons.human}
+                        <p>נגישות</p>
+                    </div>
                 </div>
                 <img src={searchPageAdd} alt="sale-page-add" />
             </div>
