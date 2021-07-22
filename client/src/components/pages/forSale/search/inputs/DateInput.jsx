@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { setDateAction } from "../../../../../actions/searchActions";
 import { SearchContext } from "../../../../../context/SearchContext";
+import { getNow } from "../../../../../utils/utils";
 import CheckBoxButton from "../CheckBoxButton";
 
 const DateInput = () => {
@@ -8,21 +9,6 @@ const DateInput = () => {
 
     const [isSelected, setIsSelected] = useState(false);
     const [value, setValue] = useState("");
-
-    const getNow = () => {
-        const date = new Date();
-        const [month, day, year] = [
-            date.getMonth().toString().length === 1
-                ? `0${date.getMonth()}`
-                : date.getMonth(),
-            date.getDate().toString().length === 1
-                ? `0${date.getDate()}`
-                : date.getDate(),
-            date.getFullYear(),
-        ];
-
-        return `${year}-${month}-${day}`;
-    };
 
     const onChangeSelectDate = (event) => {
         dispatchSearchData(setDateAction(event.target.value));

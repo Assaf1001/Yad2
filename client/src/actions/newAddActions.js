@@ -36,3 +36,14 @@ export const setDecriptionAction = (description) => ({
     type: "SET_DESCRIPTION",
     description,
 });
+
+export const setSizeAction = (size) => ({ type: "SET_SIZE", size });
+
+export const setTotalSizeAction = (totalSize) => ({
+    type: "SET_TOTAL_SIZE",
+    totalSize,
+});
+
+export const setPriceAction = (price) => ({ type: "SET_PRICE", price });
+
+export const setDateAction = (date) => ({ type: "SET_DATE", date });

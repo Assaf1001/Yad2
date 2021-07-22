@@ -1,32 +1,3 @@
-// import {
-//     faUser,
-//     faHome,
-//     faSignInAlt,
-//     faSignOutAlt,
-//     faEnvelope,
-//     faInfoCircle,
-//     faSearch,
-//     faFilter,
-//     faChevronDown,
-//     faChevronRight,
-//     faHeart,
-//     faShoppingCart,
-//     faCheck,
-//     faTruck,
-//     faEye,
-//     faShoppingBasket,
-//     faPlus,
-//     faCreditCard,
-//     faTimes,
-//     faRedoAlt,
-//     faShieldAlt,
-//     faQuestionCircle,
-//     faMapMarkerAlt,
-//     faBars,
-//     faGavel,
-// } from "@fortawesome/free-solid-svg-icons";
-// import { faCcVisa, faPaypal } from "@fortawesome/free-brands-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCheck,
@@ -47,6 +18,17 @@ import {
     faAngleDown,
     faAngleUp,
     faChild,
+    faSnowflake,
+    faCube,
+    faArchive,
+    faDoorClosed,
+    faChair,
+    faWheelchair,
+    faClipboardList,
+    faPaintRoller,
+    faFaucet,
+    faSolarPanel,
+    faBorderAll,
 } from "@fortawesome/free-solid-svg-icons";
 
 import apple from "./socialMediaIcons/apple.png";
@@ -73,36 +55,19 @@ const icons = {
     arrowDown: <FontAwesomeIcon icon={faAngleDown} />,
     arrowUp: <FontAwesomeIcon icon={faAngleUp} />,
     human: <FontAwesomeIcon icon={faChild} />,
+    snow: <FontAwesomeIcon icon={faSnowflake} />,
+    cube: <FontAwesomeIcon icon={faCube} />,
+    box: <FontAwesomeIcon icon={faArchive} />,
+    door: <FontAwesomeIcon icon={faDoorClosed} />,
+    chair: <FontAwesomeIcon icon={faChair} />,
+    wheelChair: <FontAwesomeIcon icon={faWheelchair} />,
+    lift: <FontAwesomeIcon icon={faClipboardList} />,
+    brush: <FontAwesomeIcon icon={faPaintRoller} />,
+    faucet: <FontAwesomeIcon icon={faFaucet} />,
+    solarPanel: <FontAwesomeIcon icon={faSolarPanel} />,
+    grid: <FontAwesomeIcon icon={faBorderAll} />,
 };
 
 export const socialMediaIcons = [apple, facebook, googlePlay, youtube];
-// const icons = {
-//     user: <FontAwesomeIcon icon={faUser} />,
-//     home: <FontAwesomeIcon icon={faHome} />,
-//     logIn: <FontAwesomeIcon icon={faSignInAlt} />,
-//     logOut: <FontAwesomeIcon icon={faSignOutAlt} />,
-//     contactUs: <FontAwesomeIcon icon={faEnvelope} />,
-//     help: <FontAwesomeIcon icon={faInfoCircle} />,
-//     search: <FontAwesomeIcon icon={faSearch} />,
-//     fliter: <FontAwesomeIcon icon={faFilter} />,
-//     downArrow: <FontAwesomeIcon icon={faChevronDown} />,
-//     rightArrow: <FontAwesomeIcon icon={faChevronRight} />,
-//     wishList: <FontAwesomeIcon icon={faHeart} />,
-//     cart: <FontAwesomeIcon icon={faShoppingCart} />,
-//     check: <FontAwesomeIcon icon={faCheck} />,
-//     truck: <FontAwesomeIcon icon={faTruck} />,
-//     view: <FontAwesomeIcon icon={faEye} />,
-//     basket: <FontAwesomeIcon icon={faShoppingBasket} />,
-//     plus: <FontAwesomeIcon icon={faPlus} />,
-//     creditCard: <FontAwesomeIcon icon={faCreditCard} />,
-//     visa: <FontAwesomeIcon icon={faCcVisa} />,
-//     paypal: <FontAwesomeIcon icon={faPaypal} />,
-//     delete: <FontAwesomeIcon icon={faTimes} />,
-//     returns: <FontAwesomeIcon icon={faRedoAlt} />,
-//     privacy: <FontAwesomeIcon icon={faShieldAlt} />,
-//     faq: <FontAwesomeIcon icon={faQuestionCircle} />,
-//     find: <FontAwesomeIcon icon={faMapMarkerAlt} />,
-//     hamburger: <FontAwesomeIcon icon={faBars} />,
-// };
 
 export default icons;

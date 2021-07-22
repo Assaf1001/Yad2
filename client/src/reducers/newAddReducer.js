@@ -11,6 +11,10 @@ export const initialNewAddState = {
     balcony: null,
     properties: [],
     description: null,
+    size: null,
+    totalSize: null,
+    price: null,
+    date: null,
 };
 
 const newAddReducer = (state, action) => {
@@ -48,6 +52,15 @@ const newAddReducer = (state, action) => {
             return { ...state, properties: newPropertiesArr };
         case "SET_DESCRIPTION":
             return { ...state, description: action.description };
+        case "SET_SIZE":
+            return { ...state, size: action.size };
+        case "SET_TOTAL_SIZE":
+            return { ...state, totalSize: action.totalSize };
+        case "SET_PRICE":
+            return { ...state, price: action.price };
+        case "SET_DATE":
+            return { ...state, date: action.date };
+
         default:
             return state;
     }

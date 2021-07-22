@@ -9,6 +9,7 @@ const RoomsInput = () => {
         const roomsList = [];
         let num = 0;
         while (num <= 12) {
+            if (num === 0.5) num = 1;
             roomsList.push(num);
             num += 0.5;
         }
@@ -23,6 +24,7 @@ const RoomsInput = () => {
         <div>
             <label htmlFor="rooms">מספר חדרים*</label>
             <select onChange={onChangeSelectRooms} id="rooms">
+                <option hidden="hidden">בחירת מספר חדרים</option>
                 {generateRoomsList().map((room) => (
                     <option key={room}>{room}</option>
                 ))}

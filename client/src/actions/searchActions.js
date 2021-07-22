@@ -52,11 +52,7 @@ export const setMinSizeAction = (min) => ({ type: "SET_MIN_SIZE", min });
 
 export const setMaxSizeAction = (max) => ({ type: "SET_MAX_SIZE", max });
 
-export const setDateAction = (date, isNow) => ({
-    type: "SET_DATE",
-    date,
-    isNow,
-});
+export const setDateAction = (date) => ({ type: "SET_DATE", date });
 
 export const setFreeTextAction = (text) => ({ type: "SET_FREE_TEXT", text });
 

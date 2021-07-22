@@ -6,7 +6,11 @@ import DateInput from "./inputs/DateInput";
 import FreeTextInput from "./inputs/FreeTextInput";
 import CheckBoxButton from "./CheckBoxButton";
 import { SearchContext } from "../../../../context/SearchContext";
-import { initSearchAction } from "../../../../actions/searchActions";
+import {
+    initSearchAction,
+    setDateAction,
+} from "../../../../actions/searchActions";
+import InputDate from "../../../inputs/InputDate";
 
 const AdvanceSearch = () => {
     const { dispatchSearchData } = useContext(SearchContext);
@@ -28,7 +32,14 @@ const AdvanceSearch = () => {
                 <div className="part-2">
                     <FloorInput />
                     <SizeInput />
-                    <DateInput />
+                    {/* <DateInput /> */}
+                    <InputDate
+                        id="date"
+                        label="תאריך כניסה"
+                        placeholder="החל מ- הזינו תאריך"
+                        dispatch={dispatchSearchData}
+                        action={setDateAction}
+                    />
                 </div>
                 <div className="part-2 part-3">
                     <FreeTextInput />

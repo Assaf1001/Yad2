@@ -8,7 +8,7 @@ export const initialSearchState = {
     properties: [],
     floor: { min: null, max: null },
     size: { min: null, max: null },
-    date: { date: null, isNow: false },
+    date: null,
     freeText: null,
 };
 
@@ -112,15 +112,7 @@ const searchReducer = (state, action) => {
                 size: { min: state.size.min, max: action.max },
             };
         case "SET_DATE":
-            if (action.isNow)
-                return {
-                    ...state,
-                    date: { date: action.date, isNow: true },
-                };
-            return {
-                ...state,
-                date: { date: action.date, isNow: false },
-            };
+            return { ...state, date: action.date };
         case "SET_FREE_TEXT":
             return { ...state, freeText: action.text };
         case "INIT_SEARCH":
