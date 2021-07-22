@@ -1131,6 +1131,10 @@ body {
 .publish-add .categories .row3 .publish-add-item {
   height: 56px;
 }
+.publish-add .categories .row3 .publish-add-item h2 {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
 .publish-add .categories .row3 h2 {
   font-size: 1.1rem !important;
   font-weight: 400 !important;
@@ -1188,7 +1192,7 @@ body {
 
 .new-add {
   width: 100%;
-  height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem);
   max-width: 880px;
   margin: 5rem auto 0;
 }

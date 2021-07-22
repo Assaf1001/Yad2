@@ -6,13 +6,17 @@ const Category = ({ dataList }) => (
         <ul>
             <div className="right-row">
                 {dataList.row1.map((listItem, i) => (
-                    <li key={i}>{listItem}</li>
+                    <li key={i}>
+                        {listItem.icon && listItem.icon} {listItem.text}
+                    </li>
                 ))}
             </div>
             {dataList.row2 && (
                 <div>
                     {dataList.row2.map((listItem, i) => (
-                        <li key={i}>{listItem}</li>
+                        <li key={i}>
+                            {listItem.icon && listItem.icon} {listItem.text}
+                        </li>
                     ))}
                 </div>
             )}

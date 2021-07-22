@@ -29,7 +29,7 @@ export const getCity = async (value) => {
         const res = await axios.get(addressesAPIurl, {
             params: {
                 resource_id: "9ad3862c-8391-4b2f-84a4-2d4c68625f4b",
-                q: value + "*",
+                q: value,
                 limit: 100,
             },
         });
@@ -43,6 +43,30 @@ export const getCity = async (value) => {
         }
 
         return citiesArray;
+    } catch (err) {
+        throw new Error(err.response.data.message);
+    }
+};
+
+export const getStreet = async (value) => {
+    try {
+        const res = await axios.get(addressesAPIurl, {
+            params: {
+                resource_id: "9ad3862c-8391-4b2f-84a4-2d4c68625f4b",
+                q: value,
+                limit: 100,
+            },
+        });
+
+        const records = res.data.result.records;
+        const streetsArray = [];
+        for (let record of records) {
+            if (record.שם_רחוב + " " !== record.שם_ישוב) {
+                streetsArray.push(record.שם_רחוב);
+            }
+        }
+
+        return streetsArray;
     } catch (err) {
         throw new Error(err.response.data.message);
     }

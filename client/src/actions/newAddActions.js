@@ -6,3 +6,33 @@ export const setConditionAction = (condition) => ({
 });
 
 export const setCityAction = (city) => ({ type: "SET_CITY", city });
+
+export const setStreetAction = (street) => ({ type: "SET_STREET", street });
+
+export const setHouseNumberAction = (houseNumber) => ({
+    type: "SET_HOUSE_NUMBER",
+    houseNumber,
+});
+
+export const setFloorAction = (floor) => ({ type: "SET_FLOOR", floor });
+
+export const setTotalFloorsAction = (totalFloors) => ({
+    type: "SET_TOTAL_FLOORS",
+    totalFloors,
+});
+
+export const setRoomsAction = (rooms) => ({ type: "SET_ROOMS", rooms });
+
+export const setParkingAction = (parking) => ({ type: "SET_PARKING", parking });
+
+export const setBalconyAction = (balcony) => ({ type: "SET_BALCONY", balcony });
+
+export const setPropertyAction = (property) => ({
+    type: "SET_PROPERTY",
+    property,
+});
+
+export const setDecriptionAction = (description) => ({
+    type: "SET_DESCRIPTION",
+    description,
+});

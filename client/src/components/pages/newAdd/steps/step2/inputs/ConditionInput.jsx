@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { setConditionAction } from "../../../../../actions/newAddActions";
-import { NewAddContext } from "../../../../../context/NewAddContext";
-import step2Data from "../data/step2Data";
+import { setConditionAction } from "../../../../../../actions/newAddActions";
+import { NewAddContext } from "../../../../../../context/NewAddContext";
+import step2Data from "../../data/step2Data";
 
 const ConditionInput = () => {
     const { dispatchNewAddData } = useContext(NewAddContext);

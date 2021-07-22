@@ -1,8 +1,11 @@
 import React from "react";
 import Step from "../Step";
-import KindInput from "./KindInput";
-import ConditionInput from "./ConditionInput";
-import CityInput from "../../../newAdd/steps/step2/CityInput";
+import KindInput from "./inputs/KindInput";
+import ConditionInput from "./inputs/ConditionInput";
+import CityInput from "./inputs/CityInput";
+import StreetInput from "./inputs/StreetInput";
+import HouseNumberInput from "./inputs/HouseNubmerInput";
+import FloorInput from "./inputs/FloorInput";
 
 const Step2 = () => {
     return (
@@ -11,6 +14,15 @@ const Step2 = () => {
                 <KindInput />
                 <ConditionInput />
                 <CityInput />
+                <StreetInput />
+                <HouseNumberInput />
+                <FloorInput />
+                <div>
+                    <p>
+                        אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת
+                        עבור הנכס, עסקאות באזור והצעות מקצועיות מיועצי נדל"ן
+                    </p>
+                </div>
             </form>
         </Step>
     );

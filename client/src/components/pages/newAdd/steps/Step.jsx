@@ -10,6 +10,12 @@ const Step = (props) => {
             <div className={"step-content step" + props.number}>
                 {props.children}
             </div>
+            {props.number !== 1 && (
+                <div>
+                    <button>חזרה</button>
+                    <button>המשך לשלב הבא</button>
+                </div>
+            )}
         </div>
     );
 };

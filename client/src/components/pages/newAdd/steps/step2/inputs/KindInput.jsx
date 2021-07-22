@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { setKindAction } from "../../../../../actions/newAddActions";
-import { NewAddContext } from "../../../../../context/NewAddContext";
-import step2Data from "../data/step2Data";
+import { setKindAction } from "../../../../../../actions/newAddActions";
+import { NewAddContext } from "../../../../../../context/NewAddContext";
+import step2Data from "../../data/step2Data";
 
 const KindInput = () => {
     const { dispatchNewAddData } = useContext(NewAddContext);

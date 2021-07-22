@@ -1,7 +1,6 @@
 import React, { createRef, useState } from "react";
-import { SearchContext } from "../../../../../context/SearchContext";
-import useOnClickOutsideClose from "../../../../../hooks/useOnClickOutsideClose";
-import { searchAutoComplete } from "../../../../../server/addressAPI";
+import useOnClickOutsideClose from "../../../../../../hooks/useOnClickOutsideClose";
+import { getCity } from "../../../../../../server/addressAPI";
 import CityInputResultItem from "./CityInputResultItem";
 
 const CityInput = () => {
@@ -18,7 +17,7 @@ const CityInput = () => {
     const onInputSelectCity = (value) => {
         setValue(value);
         if (value.length > 1)
-            searchAutoComplete(value)
+            getCity(value)
                 .then((res) => setResults(res))
                 .catch((err) => console.log(err));
     };
@@ -26,8 +25,8 @@ const CityInput = () => {
     useOnClickOutsideClose(ref, () => setIsOpen(false));
 
     return (
-        <div className="input city-input">
-            <label htmlFor="city">חפשו עיר או רחוב</label>
+        <div>
+            <label htmlFor="city">ישוב*</label>
             <input
                 onChange={(event) => setValue(event.target.value)}
                 onInput={(event) => {
@@ -35,28 +34,21 @@ const CityInput = () => {
                     onInputSelectCity(event.target.value);
                 }}
                 value={value}
+                placeholder="איפה נמצא הנכס?"
+                autoComplete="off"
                 type="text"
                 id="city"
-                placeholder="לדוגמה: אשדוד"
-                autoComplete="off"
             />
             <div className="dropdown" ref={ref}>
-                <div className="dropdown-content">
-                    {isOpen &&
-                        results
-                            .sort((a) => {
-                                if (a.city === a.address + " ") return -1;
-                                return 1;
-                            })
-                            .map((result, i) => (
-                                <CityInputResultItem
-                                    key={i}
-                                    result={result}
-                                    setValue={setValue}
-                                    setIsOpen={setIsOpen}
-                                />
-                            ))}
-                </div>
+                {isOpen &&
+                    results.map((resultItem, i) => (
+                        <CityInputResultItem
+                            key={i}
+                            resultItem={resultItem}
+                            setValue={setValue}
+                            setIsOpen={setIsOpen}
+                        />
+                    ))}
             </div>
         </div>
     );
